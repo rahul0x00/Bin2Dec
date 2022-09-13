@@ -6,3 +6,13 @@ The purpose of Bin2Dec is to provide practice and understanding of how binary ca
 
 Bin2Dec allows the user to enter strings of up to 8 binary digits, 0's and 1's, in any sequence and then displays its decimal equivalent.
 
+
+So First how binary is converted to Decimal Number:
+
+How to convert binary to decimal:
+
+Let binary number with n digits:
+
+The decimal number is equal to the sum of binary digits (dn) times their power of 2 (2n):
+decimal = d0×20 + d1×21 + d2×22 + ...
+
