@@ -13,6 +13,3 @@ How to convert binary to decimal:
 
 Let binary number with n digits:
 
-The decimal number is equal to the sum of binary digits (dn) times their power of 2 (2n):
-decimal = d0×20 + d1×21 + d2×22 + ...
-
