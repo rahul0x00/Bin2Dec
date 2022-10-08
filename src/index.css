@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* utils */
+.container {
+  width: 90vw;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+button.btn {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.btn:active {
+  background-color: white;
+  color: black;
+}
+
+/* anchors */
+a {
+  text-decoration: none;
+}
+
+/* navbar */
+nav.navbar {
+  height: 10vh;
+}
+
+nav.navbar .navLinksWrapper .navLinks .navLink {
+  list-style: none;
+  padding: 0 10px;
+}
+
+/* footer */
+.footer {
+  height: 10vh;
+  position: absolute;
+  width: 90vw;
+  bottom: 0;
+}
