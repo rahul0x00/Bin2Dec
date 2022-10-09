@@ -1,44 +1,39 @@
-const Conversion = require("../src/core/conversion");
+const { getDecimal } = require("../src/core/conversion");
 
-describe("test suite - tests the binary to decimal functionality", () => {
-    let conversion;
-
-    beforeAll = () => {
-        conversion = null;
-    }
-
+describe("test suite - tests the binary to decimal functionality - validation", () => {
     it("test case - 1. invalid inputs - undefined", () => {
-        conversion = new Conversion(undefined);
-        expect(conversion.bin2Dec).toBeDefined();
-        expect(conversion.bin2Dec.success).toEqual(false);
-        expect(conversion.bin2Dec.message).toEqual("Invalid input");
+        const output = getDecimal(undefined);
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(false);
+        expect(output.message).toEqual("Invalid input");
     });
 
     it("test case - 2. invalid inputs - alphabetical", () => {
-        conversion = new Conversion("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-        expect(conversion.bin2Dec).toBeDefined();
-        expect(conversion.bin2Dec.success).toEqual(false);
-        expect(conversion.bin2Dec.message).toEqual("Invalid input");
+        const output = getDecimal("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(false);
+        expect(output.message).toEqual("Invalid input");
     });
 
     it("test case - 3. invalid inputs - decimal but 10s", () => {
-        conversion = new Conversion("23456789");
-        expect(conversion.bin2Dec).toBeDefined();
-        expect(conversion.bin2Dec.success).toEqual(false);
-        expect(conversion.bin2Dec.message).toEqual("Invalid input");
+        const output = getDecimal("23456789");
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(false);
+        expect(output.message).toEqual("Invalid input");
     });
 
     it("test case - 4. invalid inputs - special characters", () => {
-        conversion = new Conversion("!@#$%^&*()~{}:<>?");
-        expect(conversion.bin2Dec).toBeDefined();
-        expect(conversion.bin2Dec.success).toEqual(false);
-        expect(conversion.bin2Dec.message).toEqual("Invalid input");
+        const output = getDecimal("!@#$%^&*()~{}:<>?");
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(false);
+        expect(output.message).toEqual("Invalid input");
     });
 
     it("test case - 5. valid inputs - decimal with 10s", () => {
-        conversion = new Conversion("1234567890");
-        expect(conversion.bin2Dec).toBeDefined();
-        expect(conversion.bin2Dec.success).toEqual(true);
-        expect(conversion.bin2Dec.message).toEqual("1");
+        const output = getDecimal("1111");
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(true);
+        expect(typeof output.message).toEqual("number");
+        expect(output.message).toEqual(15);
     });
 });
