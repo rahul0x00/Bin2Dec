@@ -1,20 +1,41 @@
-class Conversion {
-    constructor(input) {
-        this.input = input;
-    }
 
-    get bin2Dec() {
-        const result = { success: false, message: "Invalid input", }
-        const input = this.input;
-        if (input) {
-            let converted = input.match(/[0-1]+/);
-            if (input.match(/[0-1]+/)) {
-                result.success = true;
-                result.message = converted[0];
-            }
+const convertToDecimal = (binary, proceed) => {
+    let decimal = 0;
+    const binaryArray = Array.from(`${binary}`);
+    for (let power = 0, index = binaryArray.length - 1; index >= 0; index--) {
+        const digit = parseInt(binaryArray[index]);
+        decimal += digit === 0 || digit === 1 ? digit * 2 ** power++ : 0;
+    }
+    proceed(decimal);
+};
+
+const validateBinary = (input, proceed) => {
+    if (input) {
+        if (!isNaN(parseFloat(input))) {
+            proceed(parseFloat(input));
+        } else {
+            proceed(null);
         }
-        return result;
+    } else {
+        proceed(null);
     }
-}
+};
 
-module.exports = Conversion;
+const getDecimal = (input) => {
+    const result = { success: false, message: "Invalid input", };
+    validateBinary(input, (binaryNumber) => {
+        if (binaryNumber) {
+            convertToDecimal(binaryNumber, (decimalNumber) => {
+                if (decimalNumber) {
+                    result.success = true;
+                    result.message = decimalNumber;
+                }
+            });
+        }
+    });
+    return result;
+};
+
+module.exports = {
+    getDecimal
+};
