@@ -16,10 +16,10 @@ const Home = () => {
 const Body = () => {
     return (
         <section className="hero col">
-            <strong>We will cnvert your Binary Number to Decimal</strong>
-            <h2 className="heroHeadline">Enter your Binary Number Here</h2>
+            <strong>Converts your Binary Number to Decimal</strong>
             <div className="row">
-                <input type="text" name="txtBinaryNum" className="txtBinaryNum" id="txtBinaryNum" />
+                <label htmlFor="txtBinaryNum"></label>
+                <input type="text" name="txtBinaryNum" className="txtBinaryNum" id="txtBinaryNum" placeholder="Enter your Binary Number Here" />
                 <button className="btnSubmitBinaryNum btn" id="btnSubmitBinaryNum">GO</button>
             </div>
         </section>
