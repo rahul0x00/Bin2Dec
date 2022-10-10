@@ -15,15 +15,11 @@ const convertToDecimal = (binary, proceed) => {
 };
 
 const validateBinary = (input, proceed) => {
-    if (input) {
-        if (!isNaN(parseFloat(input))) {
-            proceed(parseFloat(input));
-        } else {
-            proceed(null);
-        }
-    } else {
-        proceed(null);
+    let isValidInput = false;
+    if (input && !isNaN(parseFloat(input))) {
+        isValidInput = true;
     }
+    proceed(isValidInput ? input : null);
 };
 
 const getDecimal = (input) => {
