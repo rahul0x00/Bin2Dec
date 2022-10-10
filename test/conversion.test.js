@@ -36,7 +36,21 @@ describe("test suite - tests the binary to decimal functionality - validation", 
         expect(output.message).toEqual("Invalid input");
     });
 
-    it("test case - 6. valid inputs - valid binary number", () => {
+    it("test case - 6. invalid inputs - alphanumeric", () => {
+        const output = getDecimal("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(false);
+        expect(output.message).toEqual("Invalid input");
+    });
+
+    it("test case - 7. invalid inputs - mixed characters", () => {
+        const output = getDecimal(" 1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()~{}:<>?");
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(false);
+        expect(output.message).toEqual("Invalid input");
+    });
+
+    it("test case - 8. valid inputs - valid binary number", () => {
         const output = getDecimal("1111");
         expect(output).toBeDefined();
         expect(output.success).toEqual(true);
