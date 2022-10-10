@@ -4,7 +4,12 @@ const convertToDecimal = (binary, proceed) => {
     const binaryArray = Array.from(`${binary}`);
     for (let power = 0, index = binaryArray.length - 1; index >= 0; index--) {
         const digit = parseInt(binaryArray[index]);
-        decimal += digit === 0 || digit === 1 ? digit * 2 ** power++ : 0;
+        if (digit === 0 || digit === 1) {
+            decimal += digit * 2 ** power++;
+        } else {
+            decimal = null;
+            break;
+        }
     }
     proceed(decimal);
 };
