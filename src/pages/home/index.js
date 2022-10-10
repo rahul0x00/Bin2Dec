@@ -20,6 +20,8 @@ const Body = () => {
 
     useEffect(() => setDecimal(binary ? getDecimal(binary).message : ""), [binary]);
 
+    const changeBinary = (value) => setBinary(value === "." ? "0." : value);
+
     return (
         <section className="hero col">
             <label htmlFor="txtBinaryNum">
@@ -27,7 +29,7 @@ const Body = () => {
             </label>
             <div className="row divQuestion">
                 <input type="text" name="txtBinaryNum" placeholder="Enter Binary.."
-                    className="txtBinaryNum" value={binary} onChange={(e) => setBinary(e.target.value)} />
+                    className="txtBinaryNum" value={binary} onChange={(e) => changeBinary(e.target.value)} />
             </div>
             <div className="row divAnswer">
                 <h1 className="headerAnswer">{decimal}</h1>
