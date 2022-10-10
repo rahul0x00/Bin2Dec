@@ -30,7 +30,7 @@ const Body = () => {
                     className="txtBinaryNum" value={binary} onChange={(e) => setBinary(e.target.value)} />
             </div>
             <div className="row divAnswer">
-                <h1 className="headerAnswer">{`= ${decimal}`}</h1>
+                <h1 className="headerAnswer">{decimal}</h1>
             </div>
         </section>
     );
