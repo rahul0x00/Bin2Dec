@@ -29,7 +29,14 @@ describe("test suite - tests the binary to decimal functionality - validation", 
         expect(output.message).toEqual("Invalid input");
     });
 
-    it("test case - 5. valid inputs - decimal with 10s", () => {
+    it("test case - 5. invalid inputs - decimal with 10s", () => {
+        const output = getDecimal("1234567890");
+        expect(output).toBeDefined();
+        expect(output.success).toEqual(false);
+        expect(output.message).toEqual("Invalid input");
+    });
+
+    it("test case - 6. valid inputs - valid binary number", () => {
         const output = getDecimal("1111");
         expect(output).toBeDefined();
         expect(output.success).toEqual(true);
