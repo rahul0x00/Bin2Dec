@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+import { getDecimal } from "../../core/conversion";
 import Navbar from "../../components/nav";
 import Footer from "../../components/footer";
 import "./index.css";
@@ -14,13 +15,24 @@ const Home = () => {
 }
 
 const Body = () => {
+    const [binary, setBinary] = useState("");
+    const [decimal, setDecimal] = useState("");
+
+    useEffect(() => setDecimal(binary ? getDecimal(binary).message : ""), [binary]);
+
+    const changeBinary = (value) => setBinary(value === "." ? "0." : value);
+
     return (
         <section className="hero col">
-            <strong>Converts your Binary Number to Decimal</strong>
-            <div className="row">
-                <label htmlFor="txtBinaryNum"></label>
-                <input type="text" name="txtBinaryNum" className="txtBinaryNum" id="txtBinaryNum" placeholder="Enter your Binary Number Here" />
-                <button className="btnSubmitBinaryNum btn" id="btnSubmitBinaryNum">GO</button>
+            <label htmlFor="txtBinaryNum">
+                <strong>Converts Binary to Decimal</strong>
+            </label>
+            <div className="row divQuestion">
+                <input type="text" name="txtBinaryNum" placeholder="Enter Binary.."
+                    className="txtBinaryNum" value={binary} onChange={(e) => changeBinary(e.target.value)} />
+            </div>
+            <div className="row divAnswer">
+                <h1 className="headerAnswer">{decimal}</h1>
             </div>
         </section>
     );
