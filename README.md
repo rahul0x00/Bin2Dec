@@ -11,3 +11,4 @@ So First how binary is converted to Decimal Number:
 How to convert binary to decimal:
 
 Let binary number with n digits:
+
