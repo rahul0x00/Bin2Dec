@@ -1,16 +1,11 @@
 # Binary to Decimal Converter
 
-[ **Demo** ](https://csb-kyvwnj-one.vercel.app/)
-
 Binary is the number system all digital computers are based on. Therefore it's important for developers to understand binary, or base 2, mathematics.
+
+[ **Demo** ](https://csb-kyvwnj-one.vercel.app/)
 
 The purpose of Bin2Dec is to provide practice and understanding of how binary calculations.
 
-Bin2Dec allows the user to enter strings of up to 8 binary digits, 0's and 1's, in any sequence and then displays its decimal equivalent.
+## Diagram
 
-So First how binary is converted to Decimal Number:
-
-How to convert binary to decimal:
-
-Let binary number with n digits:
-
+![bin2dec drawio (1)](https://user-images.githubusercontent.com/53265303/195973190-043f6249-f11c-47a9-a981-aa3824df4fe0.svg)
